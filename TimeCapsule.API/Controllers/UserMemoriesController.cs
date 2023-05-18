@@ -1,6 +1,7 @@
 using Domain.Entities;
 using Domain.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using TimeCapsule.API.Dtos;
 
 namespace TimeCapsule.API.Controllers;
 
@@ -9,11 +10,12 @@ namespace TimeCapsule.API.Controllers;
 public class UserMemoriesController : ControllerBase
 {
     private readonly IUserMemoryRepository _userMemoryRepository;
+    private readonly IUserRepository _userRepository;
 
-
-    public UserMemoriesController(IUserMemoryRepository userMemoryRepository)
+    public UserMemoriesController(IUserMemoryRepository userMemoryRepository, IUserRepository userRepository)
     {
         _userMemoryRepository = userMemoryRepository;
+        _userRepository = userRepository;
     }
     
     [HttpGet]
@@ -34,5 +36,27 @@ public class UserMemoriesController : ControllerBase
             return NotFound();
         
         return Ok(memory);
+    }
+    
+    [HttpPost]
+    [ProducesResponseType(StatusCodes.Status201Created)]
+    public async Task<ActionResult<UserMemory>> AddUserMemory([FromBody] UserMemoryToDto memory)
+    {
+
+        var user = await _userRepository.GetUser(memory.UserId);
+
+        if (user is null)
+            return NotFound("User not found");
+        
+        UserMemory userMemory = new()
+        {
+            CoverUrl = memory.CoverUrl,
+            Content = memory.Content,
+            IsPublic = memory.IsPublic && memory.IsPublic,
+            UserId = memory.UserId
+        };
+
+        var newMemory = await _userMemoryRepository.AddUserMemory(userMemory);
+        return CreatedAtAction(nameof(GetUserMemory), new {id = newMemory.Id}, newMemory);
     }
 }

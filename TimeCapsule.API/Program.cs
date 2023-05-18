@@ -1,4 +1,6 @@
+using Domain.Interfaces;
 using Infrastructure.Data;
+using Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,6 +12,10 @@ builder.Services.AddControllers();
 //  ----------- Swagger/OpenAPI -----------
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IUserMemoryRepository, UserMemoryRepository>();
+
 
 builder.Services.AddRouting(options => options.LowercaseUrls = true);
 

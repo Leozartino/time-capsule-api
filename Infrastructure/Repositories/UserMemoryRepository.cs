@@ -17,19 +17,24 @@ public class UserMemoryRepository: IUserMemoryRepository
     public async Task<UserMemory>? GetUserMemory(Guid id)
     {
         return await _context.Memories
-            .Include(m => m.User)
             .FirstOrDefaultAsync(m => m.Id == id);
     }
     
     public async Task<IReadOnlyList<UserMemory>> GetUserMemories()
     {
         return await _context.Memories
-            .Include(m => m.User)
             .OrderBy(m => m.CreatedAt)
             .ToListAsync();
     }
-    
-    
-    
-    
+
+    public async Task<UserMemory> AddUserMemory(UserMemory memory)
+    {
+        _context.Memories.Add(memory);
+        await _context.SaveChangesAsync();
+        
+        var createdUserMemory = await _context.Memories
+            .SingleAsync(um => um.Id == memory.Id);
+        
+        return createdUserMemory;
+    }
 }
