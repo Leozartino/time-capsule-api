@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeCapsule.API", "TimeCapsule.API\TimeCapsule.API.csproj", "{046CE4BD-6505-49A5-8B81-B76E06290917}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{A8917841-80BF-4A1C-A363-286E9C5C48A8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{E8F7B3E3-65BE-4732-AADD-F2B9AD11F901}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{046CE4BD-6505-49A5-8B81-B76E06290917}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{046CE4BD-6505-49A5-8B81-B76E06290917}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{046CE4BD-6505-49A5-8B81-B76E06290917}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{046CE4BD-6505-49A5-8B81-B76E06290917}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A8917841-80BF-4A1C-A363-286E9C5C48A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A8917841-80BF-4A1C-A363-286E9C5C48A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A8917841-80BF-4A1C-A363-286E9C5C48A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A8917841-80BF-4A1C-A363-286E9C5C48A8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E8F7B3E3-65BE-4732-AADD-F2B9AD11F901}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8F7B3E3-65BE-4732-AADD-F2B9AD11F901}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8F7B3E3-65BE-4732-AADD-F2B9AD11F901}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8F7B3E3-65BE-4732-AADD-F2B9AD11F901}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "lo6XKdbKENZ13yiyZrB/Imn+GSVCJJmPkH+ue5sNpxg=",
+  "Source": "TimeCapsule.API",
+  "BasePath": "_content/TimeCapsule.API",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

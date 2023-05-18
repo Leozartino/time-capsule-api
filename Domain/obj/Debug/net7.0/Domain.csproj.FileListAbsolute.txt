@@ -1,0 +1,12 @@
+/Users/leonardo.oliveira/RiderProjects/TimeCapsule/Domain/bin/Debug/net7.0/Domain.deps.json
+/Users/leonardo.oliveira/RiderProjects/TimeCapsule/Domain/bin/Debug/net7.0/Domain.dll
+/Users/leonardo.oliveira/RiderProjects/TimeCapsule/Domain/bin/Debug/net7.0/Domain.pdb
+/Users/leonardo.oliveira/RiderProjects/TimeCapsule/Domain/obj/Debug/net7.0/Domain.csproj.AssemblyReference.cache
+/Users/leonardo.oliveira/RiderProjects/TimeCapsule/Domain/obj/Debug/net7.0/Domain.GeneratedMSBuildEditorConfig.editorconfig
+/Users/leonardo.oliveira/RiderProjects/TimeCapsule/Domain/obj/Debug/net7.0/Domain.AssemblyInfoInputs.cache
+/Users/leonardo.oliveira/RiderProjects/TimeCapsule/Domain/obj/Debug/net7.0/Domain.AssemblyInfo.cs
+/Users/leonardo.oliveira/RiderProjects/TimeCapsule/Domain/obj/Debug/net7.0/Domain.csproj.CoreCompileInputs.cache
+/Users/leonardo.oliveira/RiderProjects/TimeCapsule/Domain/obj/Debug/net7.0/Domain.dll
+/Users/leonardo.oliveira/RiderProjects/TimeCapsule/Domain/obj/Debug/net7.0/refint/Domain.dll
+/Users/leonardo.oliveira/RiderProjects/TimeCapsule/Domain/obj/Debug/net7.0/Domain.pdb
+/Users/leonardo.oliveira/RiderProjects/TimeCapsule/Domain/obj/Debug/net7.0/ref/Domain.dll
