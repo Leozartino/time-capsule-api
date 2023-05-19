@@ -37,4 +37,38 @@ public class UserMemoryRepository: IUserMemoryRepository
         
         return createdUserMemory;
     }
+    
+    public async Task<UserMemory> PatchUserMemory(UserMemory userMemory, string coverUrl, string content, bool isPublic)
+    {
+        
+        if (!string.IsNullOrWhiteSpace(coverUrl) && userMemory.CoverUrl != coverUrl)
+        {
+            userMemory.CoverUrl = coverUrl;
+        }
+        
+        if (!string.IsNullOrWhiteSpace(content) && userMemory.Content != content)
+        {
+            userMemory.Content = content;
+        }
+        
+        if (userMemory.IsPublic != isPublic)
+        {
+            userMemory.IsPublic = isPublic;
+        }
+
+        await _context.SaveChangesAsync();
+        return userMemory;
+    }
+    
+    public async Task<bool> DeleteUserMemory(Guid id)
+    {
+        var userMemory = await _context.Memories.SingleOrDefaultAsync(um => um.Id == id);
+
+        if (userMemory is null) return false;
+        
+        _context.Memories.Remove(userMemory);
+        await _context.SaveChangesAsync();
+        return true;
+
+    }
 }

@@ -62,23 +62,32 @@ public class UserMemoriesController : ControllerBase
     
     [HttpPatch("{id}")]
     [ProducesResponseType(StatusCodes.Status200OK)]
-    public async Task<ActionResult<UserMemory>> PatchMemory([FromRoute] Guid memoryId)
+    public async Task<ActionResult<UserMemory>> PatchUserMemory([FromRoute] Guid id, [FromBody] UserMemoryPatchDto memoryRequest)
     {
 
-        var memory = await _userMemoryRepository.GetUserMemory(memoryId);
+        var memory = await _userMemoryRepository.GetUserMemory(id);
 
         if (memory is null)
             return NotFound("Memory not found");
         
-        UserMemory userMemory = new()
-        {
-            CoverUrl = memory.CoverUrl,
-            Content = memory.Content,
-            IsPublic = memory.IsPublic && memory.IsPublic,
-            UserId = memory.UserId
-        };
 
-        var newMemory = await _userMemoryRepository.AddUserMemory(userMemory);
-        return CreatedAtAction(nameof(GetUserMemory), new {id = newMemory.Id}, newMemory);
+        var newMemory = 
+            await _userMemoryRepository.PatchUserMemory
+                (memory, memoryRequest.CoverUrl, memoryRequest.Content, memoryRequest.IsPublic);
+        
+        return Ok(newMemory);
+    }
+    
+    [HttpDelete("{id}")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    public async Task<ActionResult<bool>> RemoveUserMemory([FromRoute] Guid id)
+    {
+        var result = 
+            await _userMemoryRepository.DeleteUserMemory(id);
+        
+        if(!result)
+            return NotFound();
+
+        return Ok(result);
     }
 }
