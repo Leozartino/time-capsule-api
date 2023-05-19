@@ -6,7 +6,7 @@ using TimeCapsule.API.Dtos;
 namespace TimeCapsule.API.Controllers;
 
 [ApiController]
-[Route("[controller]")]
+[Route("memories")]
 public class UserMemoriesController : ControllerBase
 {
     private readonly IUserMemoryRepository _userMemoryRepository;
@@ -47,6 +47,28 @@ public class UserMemoriesController : ControllerBase
 
         if (user is null)
             return NotFound("User not found");
+        
+        UserMemory userMemory = new()
+        {
+            CoverUrl = memory.CoverUrl,
+            Content = memory.Content,
+            IsPublic = memory.IsPublic && memory.IsPublic,
+            UserId = memory.UserId
+        };
+
+        var newMemory = await _userMemoryRepository.AddUserMemory(userMemory);
+        return CreatedAtAction(nameof(GetUserMemory), new {id = newMemory.Id}, newMemory);
+    }
+    
+    [HttpPatch("{id}")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    public async Task<ActionResult<UserMemory>> PatchMemory([FromRoute] Guid memoryId)
+    {
+
+        var memory = await _userMemoryRepository.GetUserMemory(memoryId);
+
+        if (memory is null)
+            return NotFound("Memory not found");
         
         UserMemory userMemory = new()
         {

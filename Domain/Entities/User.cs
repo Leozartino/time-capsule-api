@@ -10,5 +10,5 @@ public class User : BaseEntity
     
     public string? AvatarUrl { get; set; } = string.Empty;
     
-    public ICollection<UserMemory> UserMemories { get; set; }
+    public ICollection<UserMemory>? UserMemories { get; set; }
 }
